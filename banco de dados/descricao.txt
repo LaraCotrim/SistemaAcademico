@@ -1,0 +1,68 @@
+create table aluno(
+idaluno int not null primary key,
+nomealuno varchar(50) not null,
+datanasc date not null,
+email varchar(50) not null,
+datamat date not null,
+curso varchar(30),
+senha varchar(20) not null
+);
+
+
+create table funcionario(
+idfunc int not null primary key,
+nomefunc varchar(50) not null,
+datanascf date not null,
+emailf varchar(50) not null,
+cnh bigint not null,
+cargo varchar(20) not null,
+senhaf varchar(20) not null
+);
+
+create table disciplina(
+iddis int not null primary key,
+nomed varchar(30) not null,
+cursodis varchar(30) not null,
+idprof int not null,
+constraint fkprof foreign key (idprof) references funcionario(idfunc)
+
+);
+
+
+create table turma(
+idturma int not null,
+idalunofk int not null,
+iddisfk int not null,
+n1 int,
+n2 int,
+presenca int,
+constraint fkaluno foreign key (idalunofk) references aluno(idaluno),
+constraint fkdisciplina foreign key (iddisfk) references disciplina(iddis)
+);
+
+
+alter table turma
+add constraint chave_composta primary key clustered (idturma,idalunofk,iddisfk);
+
+
+insert into aluno values (1000,'NICKSAO','1990-07-20','nick@hotmail.com','2020-09-07', 'ADS', '123')
+insert into aluno values (1111,'MAYCAO','1990-07-21','maycon@hotmail.com','2019-09-07', 'ADS', '12345')
+insert into aluno values (1236,'LUCAO','1990-05-20','lucao@hotmail.com','2020-08-07', 'ADS', '123456')
+select * from aluno
+
+insert into funcionario values (99,'MAX','1993-05-12','max@hotmail.com',81841,'PROFESSOR','123');
+insert into funcionario values (102,'JUKE','1994-05-12','juke@hotmail.com',818878741,'PROFESSOR','123');
+insert into funcionario values (100,'JORIVER','1993-06-12','joriver@hotmail.com',818414181,'COORDENADOR','123');
+insert into funcionario values (101,'ANIBAL','1993-07-12','anibal@hotmail.com',9223851818261,'SECRETARIA','123');
+
+select * from funcionario
+
+
+insert into disciplina values (10,'REQUISITOS','ADS',99)
+insert into disciplina values (11,'DESEN WEB','ADS',102)
+
+select * from disciplina
+
+insert into turma values (6200,1236,10,1,1,20)
+insert into turma values (600,1236,10,null,null,null)
+insert into turma values (600,1000,10,null,null,null)

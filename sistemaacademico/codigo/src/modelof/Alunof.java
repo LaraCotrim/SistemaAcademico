@@ -53,6 +53,16 @@ public class Alunof {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	public void setN1(float n1) {
+		// TODO Auto-generated method stub
+		
+	}public void setN2(float n2) {
+		// TODO Auto-generated method stub
+		
+	}public void setFrequencia(int frequencia) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 

@@ -4,40 +4,34 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+
 public class ConexaoF {
 	
-	public static Connection criarConexao() {
-		String url = "jdbc:mysql://localhost:3306/faculdade?useTimezone=true&serverTimezone=UTC";
-		String user = "root";
-		String pass = "newrootpassword";
-
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection(url, user, pass);
-			return conn;
-		} catch (SQLException e) {
-			System.err.println("Erro ao conectar");
-			e.printStackTrace();
-			return null;
-		} catch (ClassNotFoundException e) {
-			System.err.println("Classe do driver não encontrada");
-			e.printStackTrace();
-			return null;
-		}
-	}
+	private String login = "root";
+	private String senha = "";
+	private String url = "jdbc:mysql://localhost/academico";
 	
-
-	  public static void main(String [] args) throws SQLException, ClassNotFoundException { 
-		  
-	  
-	  ConexaoF conexao = new ConexaoF();
-	  
-	  Connection conn = ConexaoF.criarConexao();
-	  
-	  System.out.println(conn);
-	  
-	  }
+	public Connection conexao = null;
+	
+	//Conecta com o banco de dados
+	public Connection criarConexao() throws InterruptedException
+	{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			this.conexao = DriverManager.getConnection(url,login,senha);
+		}
+		catch(SQLException ex)
+		{
+			System.out.println("Erro! Não conectou com o banco de dados");
+		}
+		return this.conexao;
 	 
+	}
 	
 
 }

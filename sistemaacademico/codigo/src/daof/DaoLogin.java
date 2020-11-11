@@ -14,7 +14,7 @@ public class DaoLogin extends ConexaoF{
 	
 	
 	//VALIDA LOGIN
-	public String loginUser(int login) throws SQLException
+	public String loginUser(int login) throws SQLException, InterruptedException
 	{
 		ResultSet rs = null;
 		String cargo;
@@ -48,7 +48,7 @@ public class DaoLogin extends ConexaoF{
 	}
 	
 	//VALIDA SENHA DO USUARIO
-	public boolean validaSenha(int login, String senha) throws SQLException
+	public boolean validaSenha(int login, String senha) throws SQLException, InterruptedException
 	{
 		ResultSet rs = null;
 		
@@ -81,7 +81,7 @@ public class DaoLogin extends ConexaoF{
 	}
 	
 	//RETORNA OBJETO ALUNO 
-	public Alunof dadosAluno(int login) throws SQLException
+	public Alunof dadosAluno(int login) throws SQLException, InterruptedException
 	{
 		ResultSet rs = null;
 		String cargo;
@@ -108,7 +108,7 @@ public class DaoLogin extends ConexaoF{
 	}
 	
 	//RETORNA OBJETO TURMA DO ALUNO
-		public ArrayList<Turma> dadosTurma(int login) throws SQLException
+		public ArrayList<Turma> dadosTurma(int login) throws SQLException, InterruptedException
 		{
 			ResultSet rs = null;
 			String cargo;
@@ -138,7 +138,7 @@ public class DaoLogin extends ConexaoF{
 		}
 		
 		//RETORNA DADOS TURMA AO PROFESSOR
-		public ArrayList<Turma> dadosTurmaP(int login) throws SQLException
+		public ArrayList<Turma> dadosTurmaP(int login) throws SQLException, InterruptedException
 		{
 			ResultSet rs = null;
 			String cargo;

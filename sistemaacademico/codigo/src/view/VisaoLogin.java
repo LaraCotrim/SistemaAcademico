@@ -12,7 +12,7 @@ public class VisaoLogin {
 	
 	
 	
-	public static void professor(int login) throws SQLException
+	public static void professor(int login) throws SQLException, InterruptedException
 	{
 		Scanner sc = new Scanner(System.in);
 		
@@ -122,7 +122,7 @@ public class VisaoLogin {
 		
 	}
 	
-	public static void aluno(int login) throws SQLException
+	public static void aluno(int login) throws SQLException, InterruptedException
 	{
 		Scanner sc = new Scanner(System.in);
 		int opcao;
@@ -179,7 +179,7 @@ public class VisaoLogin {
 	
 	
 
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) throws SQLException, InterruptedException {
 		Scanner sc = new Scanner(System.in);
 		Scanner sc1 = new Scanner(System.in);
 

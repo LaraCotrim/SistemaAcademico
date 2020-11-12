@@ -13,9 +13,4 @@ public class AlunoDao {
 		
 	}
 
-	public void cadastarNotaFrequencia(Alunof aluno) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
